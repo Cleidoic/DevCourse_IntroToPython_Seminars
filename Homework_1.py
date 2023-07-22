@@ -25,3 +25,37 @@ sirGay = petya
 katya = 2 * (petya + sirGay)
 
 print(petya, katya, sirGay)
+
+# Задача 3:
+
+# Вы пользуетесь общественным транспортом? Вероятно, вы расплачивались за проезд и получали билет с номером.
+# Счастливым билетом называют такой билет с шестизначным номером, где сумма первых трех цифр равна сумме последних трех.
+# Т.е. билет с номером 385916 – счастливый, т.к. 3+8+5=9+1+6.
+# Вам требуется написать программу, которая проверяет счастливость билета с номером n и выводит на экран yes или no.
+
+n = int(input())
+
+def is_lucky_ticket(n):
+    # Преобразуем номер билета в строку
+    ticket_str = str(n)
+
+    # Проверяем на целое шестизначное число
+    if isinstance(n, int) and len(ticket_str) == 6:
+        
+        # Разбиваем строку на две части посредством срезов
+        first_half = ticket_str[:3]
+        second_half = ticket_str[3:]
+    
+        # Преобразуем каждую половину обратно в числа
+        first_sum = sum(int(digit) for digit in first_half)
+        second_sum = sum(int(digit) for digit in second_half)
+    
+        # Сравниваем суммы
+        if first_sum == second_sum:
+            return "yes"
+        else:
+            return "no"
+    else:
+        return "Ввели не целое или не шестизначное число"
+
+print(is_lucky_ticket(n))
