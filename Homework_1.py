@@ -59,3 +59,16 @@ def is_lucky_ticket(n):
         return "Ввели не целое или не шестизначное число"
 
 print(is_lucky_ticket(n))
+
+# Задача 4:
+
+# Определите, можно ли от шоколадки размером a × b долек отломить c долек, если разрешается сделать один разлом по прямой между дольками (то есть разломить шоколадку на два прямоугольника).
+# Выведите yes или no соответственно.
+
+choc_length, choc_width, piece = int(input('Длина шоколадки')), int(input('Ширина шоколадки')), int(input('Долька шоколадки'))
+
+if piece <= choc_length * choc_width and (piece % choc_length == 0 or piece % choc_width == 0):
+    print("yes")
+else:
+    print("no")
+    
